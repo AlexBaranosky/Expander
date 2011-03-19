@@ -1,11 +1,13 @@
-
 .section .square {
 	background-color: blue;
 	height: 50px;
 	width: 50px;
+	font-size: 35px;
+	text-align: center;
 }
 
 .section .expander {
 	height: 300px;
 	width: 500px;
+	border: 1px solid black;
 }
