@@ -1,0 +1,11 @@
+
+.section .square {
+	background-color: blue;
+	height: 50px;
+	width: 50px;
+}
+
+.section .expander {
+	height: 300px;
+	width: 500px;
+}
