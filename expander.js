@@ -1,14 +1,11 @@
 (function() {
-    function start() {
-        function squareId(num) { return 'square' + num; }
-        function expanderId(num) { return 'expander' + num; }
-
+    function addEvents() {
         $R('1', '4').each(function(num) {
-            Event.observe($(squareId(num)), 'click', function() {
-                Effect.toggle(expanderId(num), 'blind', { duration: 0.5 });
+            Event.observe($('square' + num), 'click', function() {
+                Effect.toggle('expander' + num, 'blind', { duration: 0.5 });
             });
         });
     }
 
-    Event.observe(window, 'load', start);
+    Event.observe(window, 'load', addEvents);
 }());
