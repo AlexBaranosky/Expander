@@ -1,8 +1,19 @@
 (function() {
-    function addEvents() {
-        $R('1', '4').each(function(num) {
-            Event.observe($('square' + num), 'click', function() {
-                Effect.toggle('expander' + num, 'blind', { duration: 0.5 });
+	var ExpanderWidget = function(squareElement, expanderElement) {
+		this.squareElement = squareElement;
+		this.expanderElement = expanderElement;
+	};
+
+    function addEvents() {	
+		var widgets = $$('div.section').collect(function(section) {
+			var square = Element.down(section, 'div.square');
+			var expander = Element.down(section, 'div.expander');
+			return new ExpanderWidget(square, expander);
+		})
+	
+        widgets.each(function(widget) {
+            Event.observe(widget.squareElement, 'click', function() {
+                Effect.toggle(widget.expanderElement, 'blind', { duration: 0.5 });
             });
         });
     }
