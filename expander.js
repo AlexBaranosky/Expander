@@ -6,9 +6,15 @@
             return { squareElement: square,
                      expanderElement: expander};
         });
+		
+		function squareText(squareElement) {			
+            return squareElement.innerText == '+' ? '-' : '+';
+		}
 
         widgets.each(function(widget) {
-            Event.observe(widget.squareElement, 'click', function() {
+			var square = widget.squareElement;
+            Event.observe(square, 'click', function() {
+				square.innerText = squareText(square);				
                 Effect.toggle(widget.expanderElement, 'blind', { duration: 0.5 });
             });
         });
