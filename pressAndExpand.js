@@ -4,19 +4,19 @@ function PressAndExpand(elementToPress, elementThatExpands) {
 }
 
 PressAndExpand.prototype.activate = function() {
-    function squareText(elementToPress) {
+    function pressItText(elementToPress) {
         return elementToPress.innerText === '+' ? '-' : '+';
     }
 
-    function squareColor(elementToPress) {
+    function pressItColor(elementToPress) {
         return elementToPress.getStyle('background-color') === 'white' ? 'red' : 'white';
     }
 
     var pressIt = this.elementToPress;
     var expands = this.elementThatExpands;
     Event.observe(pressIt, 'click', function() {
-        pressIt.innerText = squareText(pressIt);
-        pressIt.setStyle({ backgroundColor: squareColor(pressIt)});
+        pressIt.innerText = pressItText(pressIt);
+        pressIt.setStyle({ backgroundColor: pressItColor(pressIt)});
         Effect.toggle(expands, 'blind', { duration: 0.5 });
     });
 };
