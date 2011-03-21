@@ -5,7 +5,6 @@
             var itExpands = Element.down(section, 'div.expander');
             return new PressAndExpand(pressIt, itExpands);
         });
-        widgets.invoke('activate');
     }
 
     Event.observe(window, 'load', addEvents);
